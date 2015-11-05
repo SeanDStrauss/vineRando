@@ -8,7 +8,7 @@
  * Controller of the vineProjectApp
  */
 angular.module('vineProjectApp')
-  .controller('MainCtrl', function ($scope, $http, $sce) {
+  .controller('MainCtrl', function ($scope, $http, $sce, $window) {
    var vines = {};
    $http.defaults.headers.common["X-Mashape-Authorization"] = "zEs3Gj1vuFmshm446Z3SmHLJBBadp11x51Kjsnj0lZfKUUlDkx";
 	$http({
@@ -29,14 +29,11 @@ angular.module('vineProjectApp')
 
 		$scope.randomVine = vines[randomNum];
 
-		
-		
+
+		$scope.pageReload = function(){
+			$window.location.reload();
+		}
 
 		//console.log(response);
 	});
   });
-
-
-
- 
-	
